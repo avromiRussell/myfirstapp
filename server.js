@@ -2,6 +2,7 @@ const express = require('express')
 const app = express();
 const port = process.env.PORT || 3000;
 const fs = require('fs'); //YS: This is not being used.
+const path = require('path');
 
 const taskRouter = require('./routes/tasksRoute.js')
 const {
@@ -9,7 +10,9 @@ const {
 } = require('uuid');  //YS: This is not being used.
 
 app.use(express.json())
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 
 
